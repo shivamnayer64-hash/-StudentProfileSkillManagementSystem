@@ -1,0 +1,181 @@
+{
+  "info": {
+    "name": "Student Profile and Skill Development Management",
+    "description": "Import and run these requests after starting the Spring Boot application.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "1 Add Student - Aarav",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": 101,\n  \"studentName\": \"Aarav Sharma\",\n  \"email\": \"aarav@example.com\",\n  \"courseName\": \"CSE\",\n  \"programmingScore\": 88,\n  \"mathematicsScore\": 92,\n  \"technicalSkills\": [\n    \"Java\",\n    \"C++\",\n    \"SQL\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "2 Add Student - Ananya (test improvement filter)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": 102,\n  \"studentName\": \"Ananya Verma\",\n  \"email\": \"ananya@example.com\",\n  \"courseName\": \"CSE\",\n  \"programmingScore\": 42,\n  \"mathematicsScore\": 82,\n  \"technicalSkills\": [\n    \"Python\",\n    \"SQL\",\n    \"Excel\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "3 Add Student - Rohan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": 103,\n  \"studentName\": \"Rohan Gupta\",\n  \"email\": \"rohan@example.com\",\n  \"courseName\": \"IT\",\n  \"programmingScore\": 72,\n  \"mathematicsScore\": 68,\n  \"technicalSkills\": [\n    \"Java\",\n    \"SQL\",\n    \"HTML\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "4 Retrieve All Students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "5 Search Student by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/students/101"
+      }
+    },
+    {
+      "name": "6 Search by ID / Email / Course",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/students/search?term=CSE"
+      }
+    },
+    {
+      "name": "7 Update Scores and Skills",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students/101",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"programmingScore\": 95,\n  \"mathematicsScore\": 91,\n  \"technicalSkills\": [\n    \"Java\",\n    \"Spring Boot\",\n    \"MySQL\",\n    \"REST API\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "8 Display Merit List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/students/merit-list"
+      }
+    },
+    {
+      "name": "9 Students with Shared Technical Skills",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/students/same-skills"
+      }
+    },
+    {
+      "name": "10 Programming Improvement (Programming < 50, Maths >= 75)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/students/programming-improvement"
+      }
+    },
+    {
+      "name": "11 Delete Student",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/api/students/103"
+      }
+    },
+    {
+      "name": "12 Validation Test - Invalid Score (expected 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": 999,\n  \"studentName\": \"Invalid Student\",\n  \"email\": \"invalid@example.com\",\n  \"courseName\": \"CSE\",\n  \"programmingScore\": 120,\n  \"mathematicsScore\": 80,\n  \"technicalSkills\": [\n    \"Java\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
